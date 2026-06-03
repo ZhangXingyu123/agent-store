@@ -1,6 +1,6 @@
 # Transaction Policy
 
-Codex marketplace installation is not a payment processor. This repository
+Host-specific marketplace installation is not a payment processor. This repository
 implements a marketplace-side transaction and entitlement ledger that can be
 connected to a provider such as Stripe, Paddle, WeChat Pay, Alipay, or an
 internal billing system.

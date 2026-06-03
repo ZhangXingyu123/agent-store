@@ -1,8 +1,51 @@
 {
   "schemaVersion": "1.0",
-  "name": "demo-skill-store",
-  "displayName": "Demo Skill Store",
-  "installCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+  "name": "agent-store",
+  "displayName": "Agent Store",
+  "primaryInstallCommand": "codex plugin marketplace add ZhangXingyu123/agent-store",
+  "installCommands": [
+    {
+      "platform": "codex",
+      "command": "codex plugin marketplace add ZhangXingyu123/agent-store"
+    }
+  ],
+  "platforms": {
+    "schemaVersion": "1.0",
+    "marketplace": "agent-store",
+    "displayName": "Agent Store",
+    "positioning": "A cross-platform marketplace for reusable agent capabilities, skills, connectors, scripts, and platform adapters.",
+    "developerModel": {
+      "submitOnce": true,
+      "preferredPackage": "open-agent-skill",
+      "adapterStrategy": "Developers submit one reusable capability and add platform adapters only where the host tool requires packaging differences."
+    },
+    "platforms": [
+      {
+        "id": "open-agent-skills",
+        "displayName": "Open Agent Skills",
+        "status": "supported",
+        "role": "Shared authoring format for portable capability instructions and assets."
+      },
+      {
+        "id": "codex",
+        "displayName": "Codex",
+        "status": "supported",
+        "role": "Installable adapter through the host plugin marketplace format."
+      },
+      {
+        "id": "claude-code",
+        "displayName": "Claude Code",
+        "status": "planned",
+        "role": "Future adapter target for compatible skill packaging and invocation metadata."
+      },
+      {
+        "id": "mcp-clients",
+        "displayName": "MCP-capable agent clients",
+        "status": "planned",
+        "role": "Connector-oriented distribution for tools that expose MCP servers."
+      }
+    ]
+  },
   "plugins": [
     {
       "name": "invoice-expense",
@@ -10,11 +53,11 @@
       "status": "listed",
       "displayName": "Invoice Expense",
       "summary": "Build a reimbursement table from invoice data.",
-      "description": "Invoice Expense adds a reusable Codex skill for converting invoice fields into a reimbursement table, with a small local demo script for CSV or JSON inputs.",
+      "description": "Invoice Expense adds a reusable agent skill for converting invoice fields into a reimbursement table, with a small local demo script for CSV or JSON inputs.",
       "developer": {
-        "name": "Demo Skill Store",
+        "name": "Agent Store",
         "contact": "marketplace-ops@example.com",
-        "url": "https://example.com/demo-skill-store"
+        "url": "https://example.com/agent-store"
       },
       "category": "Productivity",
       "capabilities": [
@@ -34,7 +77,7 @@
         "level": "community-reviewed",
         "checkedAt": "2026-06-03",
         "checks": [
-          "codex-marketplace-entry",
+          "platform-adapter-entry",
           "plugin-manifest",
           "skill-frontmatter",
           "source-path",
@@ -56,13 +99,18 @@
       },
       "distribution": {
         "sourcePath": "./plugins/invoice-expense",
-        "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+        "installCommands": [
+          {
+            "platform": "codex",
+            "command": "codex plugin marketplace add ZhangXingyu123/agent-store"
+          }
+        ],
         "channel": "git-marketplace",
         "releaseTrack": "stable"
       },
       "checksums": {
-        "manifestSha256": "531076bee8b6a19c4b631b5a5790378ede6e9f3c565c4dcb3f1513cfddd4b9c4",
-        "pluginTreeSha256": "c1f54cf93d45191cfa38b390831563442a537eb8b003310affaef8ab4d512957"
+        "manifestSha256": "1edd4456c770fbd06cef885a1c6beb83b23e5e2c9fca6e191f2756d9238e493b",
+        "pluginTreeSha256": "b1910c411cb8c13db2798a95052e1a159491de1bb5ece98e0a6e82de0b5ce02a"
       }
     },
     {
@@ -71,11 +119,11 @@
       "status": "listed",
       "displayName": "Zebra Image",
       "summary": "Apply a zebra stripe effect to an input image.",
-      "description": "Zebra Image adds a reusable Codex skill for converting common image files into black-and-white zebra-style PNG outputs with a small local demo script.",
+      "description": "Zebra Image adds a reusable agent skill for converting common image files into black-and-white zebra-style PNG outputs with a small local demo script.",
       "developer": {
-        "name": "Demo Skill Store",
+        "name": "Agent Store",
         "contact": "marketplace-ops@example.com",
-        "url": "https://example.com/demo-skill-store"
+        "url": "https://example.com/agent-store"
       },
       "category": "Creativity",
       "capabilities": [
@@ -95,7 +143,7 @@
         "level": "community-reviewed",
         "checkedAt": "2026-06-03",
         "checks": [
-          "codex-marketplace-entry",
+          "platform-adapter-entry",
           "plugin-manifest",
           "skill-frontmatter",
           "source-path",
@@ -117,13 +165,18 @@
       },
       "distribution": {
         "sourcePath": "./plugins/zebra-image",
-        "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+        "installCommands": [
+          {
+            "platform": "codex",
+            "command": "codex plugin marketplace add ZhangXingyu123/agent-store"
+          }
+        ],
         "channel": "git-marketplace",
         "releaseTrack": "stable"
       },
       "checksums": {
-        "manifestSha256": "1a2eb0d966f1c6dcc5870aa5e72a76f565ada014f5f228f6607029a7a947dafe",
-        "pluginTreeSha256": "433a4738c5a7846d58379d2e70e679889499d30bfc7472a20fecffa6bdc531d2"
+        "manifestSha256": "ee96c0ea3633f1550b6cff64b45d0678749c91e916eb2bb26209e77edb644578",
+        "pluginTreeSha256": "2bbc9efbaad9c2858d4b9fbe401d2014c4758d09137185c896135465cce4c218"
       }
     },
     {
@@ -132,11 +185,11 @@
       "status": "listed",
       "displayName": "Feishu Connector",
       "summary": "Read and automate Feishu/Lark docs, chats, calendars, and bitables.",
-      "description": "Feishu Connector bundles a Codex skill and MCP configuration for the official Feishu/Lark OpenAPI MCP server. Users bring their own Feishu/Lark app credentials and grant only the scopes needed for their task.",
+      "description": "Feishu Connector bundles an agent skill and MCP configuration for the official Feishu/Lark OpenAPI MCP server. Users bring their own Feishu/Lark app credentials and grant only the scopes needed for their task.",
       "developer": {
-        "name": "Demo Skill Store",
+        "name": "Agent Store",
         "contact": "marketplace-ops@example.com",
-        "url": "https://example.com/demo-skill-store"
+        "url": "https://example.com/agent-store"
       },
       "category": "Productivity",
       "capabilities": [
@@ -157,7 +210,7 @@
         "level": "community-reviewed",
         "checkedAt": "2026-06-03",
         "checks": [
-          "codex-marketplace-entry",
+          "platform-adapter-entry",
           "plugin-manifest",
           "mcp-config-present",
           "skill-frontmatter",
@@ -180,13 +233,18 @@
       },
       "distribution": {
         "sourcePath": "./plugins/feishu-connector",
-        "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+        "installCommands": [
+          {
+            "platform": "codex",
+            "command": "codex plugin marketplace add ZhangXingyu123/agent-store"
+          }
+        ],
         "channel": "git-marketplace",
         "releaseTrack": "stable"
       },
       "checksums": {
-        "manifestSha256": "66aa359c559cf4dd0e8b8f8656a705546b90d33bafaa518d78d6ed97998b896d",
-        "pluginTreeSha256": "f04120755f0c49dc3cc0eadaeb305b63c74eb20aa1252a751e4c2704d76c1723"
+        "manifestSha256": "67dbe57df31e787b4453c9cf9709455f8f2b6ed40d8f15397fc318c310d1c86c",
+        "pluginTreeSha256": "0127e1c73381da101ec5eb8e007f3c99f4800aa7fcd9f663acd7adfaea4616bb"
       }
     },
     {
@@ -195,11 +253,11 @@
       "status": "listed",
       "displayName": "Meituan Paotui",
       "summary": "Prepare Meituan runner-service requests with explicit user confirmation.",
-      "description": "Meituan Paotui is a store adapter that points Codex users to the official Meituan Paotui Skill source and enforces safe usage notes. It does not redistribute the upstream Meituan code unless the upstream license or authorization permits it.",
+      "description": "Meituan Paotui is a store adapter that points agent users to the official Meituan Paotui Skill source and enforces safe usage notes. It does not redistribute the upstream Meituan code unless the upstream license or authorization permits it.",
       "developer": {
-        "name": "Demo Skill Store",
+        "name": "Agent Store",
         "contact": "marketplace-ops@example.com",
-        "url": "https://example.com/demo-skill-store"
+        "url": "https://example.com/agent-store"
       },
       "category": "Local Services",
       "capabilities": [
@@ -220,7 +278,7 @@
         "level": "community-reviewed",
         "checkedAt": "2026-06-03",
         "checks": [
-          "codex-marketplace-entry",
+          "platform-adapter-entry",
           "plugin-manifest",
           "skill-frontmatter",
           "source-path",
@@ -243,14 +301,20 @@
       },
       "distribution": {
         "sourcePath": "./plugins/meituan-paotui",
-        "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+        "installCommands": [
+          {
+            "platform": "codex",
+            "command": "codex plugin marketplace add ZhangXingyu123/agent-store"
+          }
+        ],
         "channel": "git-marketplace",
         "releaseTrack": "stable"
       },
       "checksums": {
-        "manifestSha256": "6fcb80ea51f989acf50228fd99abd6d562636918e8faba4ade7729b47b35fa4d",
-        "pluginTreeSha256": "852f4dd396c7c6090dbc2293a60b1bddddfafce69303544ced7f3a8ff9777272"
+        "manifestSha256": "131f1d0131b164f1ed93b8984aafba6009b1a39f2edcc355a557313f70ac82ff",
+        "pluginTreeSha256": "f5149720432d09ff1b73d4d6ef0b0c2e8b3dc3c21df2e70ad7de97f608656bb5"
       }
     }
-  ]
+  ],
+  "source": "ZhangXingyu123/agent-store"
 }

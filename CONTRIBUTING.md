@@ -17,12 +17,12 @@ reference it from `.codex-plugin/plugin.json`.
 
 ```bash
 python3 scripts/validate_marketplace.py --strict
-python3 scripts/build_public_index.py --marketplace-source owner/repo
+python3 scripts/build_public_index.py --marketplace-source ZhangXingyu123/agent-store
 ```
 
 ## Review expectations
 
-- Keep skill descriptions specific enough for Codex routing.
+- Keep skill descriptions specific enough for host-agent routing.
 - Declare all files, external services, credentials, and write actions.
 - Do not bundle upstream code unless redistribution rights are clear.
 - Use explicit user confirmation for high-risk actions.

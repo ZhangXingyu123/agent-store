@@ -1,12 +1,12 @@
 # Validation Policy
 
-This marketplace accepts Codex plugins that can be installed from a repo-backed
+This marketplace accepts agent capabilities that can be installed from a repo-backed
 marketplace source. Every listed plugin must pass automated validation before it
 can be distributed.
 
 ## Required checks
 
-- The Codex marketplace file exists at `.agents/plugins/marketplace.json`.
+- The host-adapter marketplace file exists at `.agents/plugins/marketplace.json`.
 - Each marketplace entry has a unique kebab-case name.
 - Each entry uses `source.source: local` and a `./`-prefixed `source.path`
   inside the repository root.
@@ -50,7 +50,7 @@ skill instructions and listing governance metadata.
 
 ```bash
 python3 scripts/validate_marketplace.py
-python3 scripts/build_public_index.py --marketplace-source ZhangXingyu123/codex-skill-store
+python3 scripts/build_public_index.py --marketplace-source ZhangXingyu123/agent-store
 ```
 
 Use `--strict` in CI when warnings should fail the build.

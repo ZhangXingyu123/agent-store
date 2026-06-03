@@ -1,6 +1,6 @@
 # Meituan Paotui
 
-This plugin is a Codex store adapter for the official Meituan Paotui Skill source.
+This plugin is a Agent Store adapter for the official Meituan Paotui Skill source.
 
 Official sources checked on 2026-06-03:
 

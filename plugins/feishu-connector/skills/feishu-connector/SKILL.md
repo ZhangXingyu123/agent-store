@@ -1,11 +1,11 @@
 ---
 name: feishu-connector
-description: Use when the user wants Codex to work with Feishu or Lark documents, messages, calendars, contacts, groups, tasks, bitables, or Open Platform APIs through the official Feishu/Lark OpenAPI MCP server. Trigger on 飞书, Lark, Feishu, 飞书文档, 飞书群, 多维表格, 日历, 会议, IM, bitable, and approval workflow requests.
+description: Use when the user wants the host agent to work with Feishu or Lark documents, messages, calendars, contacts, groups, tasks, bitables, or Open Platform APIs through the official Feishu/Lark OpenAPI MCP server. Trigger on 飞书, Lark, Feishu, 飞书文档, 飞书群, 多维表格, 日历, 会议, IM, bitable, and approval workflow requests.
 ---
 
 # Feishu Connector
 
-Use this skill to connect Codex to Feishu/Lark through the official `@larksuiteoapi/lark-mcp` MCP server.
+Use this skill to connect the host agent to Feishu/Lark through the official `@larksuiteoapi/lark-mcp` MCP server.
 
 ## Required setup
 
@@ -51,4 +51,3 @@ export FEISHU_MCP_EXTRA_ARGS="--domain https://open.larksuite.com"
 3. If not available, run `scripts/check_feishu_setup.py` from the plugin root to explain missing setup.
 4. Use MCP tools for Feishu/Lark operations.
 5. For write actions, show a concise preview and wait for explicit confirmation.
-

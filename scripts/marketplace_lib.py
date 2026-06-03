@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Shared helpers for the public Codex plugin marketplace."""
+"""Shared helpers for the public Agent Store marketplace."""
 
 from __future__ import annotations
 
@@ -26,6 +26,7 @@ ALLOWED_RISK_TIERS = {"low", "medium", "high", "critical"}
 MARKETPLACE_PATH = Path(".agents/plugins/marketplace.json")
 LISTINGS_DIR = Path("marketplace/listings")
 LEDGER_PATH = Path("marketplace/transactions/ledger.jsonl")
+PLATFORMS_PATH = Path("marketplace/platforms.json")
 
 SECRET_PATTERNS = [
     ("openai_api_key", re.compile(r"\bsk-[A-Za-z0-9_-]{20,}\b")),
@@ -239,6 +240,8 @@ def buyer_ref(raw_buyer: str) -> str:
 
 def build_public_catalog(root: Path) -> dict[str, Any]:
     marketplace = load_marketplace(root)
+    platforms_path = root / PLATFORMS_PATH
+    platforms = read_json(platforms_path) if platforms_path.exists() else None
     plugins: list[dict[str, Any]] = []
     for context in load_plugin_contexts(root):
         if not context.manifest or not context.listing:
@@ -270,6 +273,13 @@ def build_public_catalog(root: Path) -> dict[str, Any]:
         "schemaVersion": "1.0",
         "name": marketplace["name"],
         "displayName": marketplace.get("interface", {}).get("displayName", marketplace["name"]),
-        "installCommand": "codex plugin marketplace add <marketplace-source>",
+        "primaryInstallCommand": "codex plugin marketplace add <marketplace-source>",
+        "installCommands": [
+            {
+                "platform": "codex",
+                "command": "codex plugin marketplace add <marketplace-source>",
+            }
+        ],
+        "platforms": platforms,
         "plugins": plugins,
     }

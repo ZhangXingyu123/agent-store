@@ -1,6 +1,6 @@
 # Feishu Connector
 
-This plugin adds a Codex skill and MCP configuration for the official Feishu/Lark OpenAPI MCP server.
+This plugin adds an agent skill and MCP configuration for the official Feishu/Lark OpenAPI MCP server.
 
 Before using it, create a Feishu/Lark app and set:
 
@@ -15,5 +15,4 @@ For user OAuth mode:
 export FEISHU_MCP_EXTRA_ARGS="--oauth --token-mode user_access_token"
 ```
 
-Then install the plugin from `Demo Skill Store` in Codex and ask Codex to use `feishu-connector`.
-
+Then install the plugin from `Agent Store` in the host agent and ask your agent to use `feishu-connector`.

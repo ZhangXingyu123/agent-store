@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the public Codex plugin marketplace."""
+"""Validate the public Agent Store marketplace."""
 
 from __future__ import annotations
 
@@ -62,8 +62,18 @@ def validate_listing(name: str, listing: dict[str, Any], errors: list[str], warn
     else:
         if not distribution.get("sourcePath"):
             add_error(errors, f"{prefix}: distribution.sourcePath is required")
-        if not distribution.get("codexInstallCommand"):
-            add_warning(warnings, f"{prefix}: distribution.codexInstallCommand is recommended")
+        install_commands = distribution.get("installCommands")
+        if not isinstance(install_commands, list) or not install_commands:
+            add_warning(warnings, f"{prefix}: distribution.installCommands is recommended")
+        else:
+            for idx, command in enumerate(install_commands):
+                if not isinstance(command, dict):
+                    add_error(errors, f"{prefix}: distribution.installCommands[{idx}] must be an object")
+                    continue
+                if not command.get("platform"):
+                    add_error(errors, f"{prefix}: distribution.installCommands[{idx}].platform is required")
+                if not command.get("command"):
+                    add_error(errors, f"{prefix}: distribution.installCommands[{idx}].command is required")
 
     verification = listing.get("verification")
     if not isinstance(verification, dict):
@@ -282,7 +292,7 @@ def validate_marketplace(root: Path) -> dict[str, Any]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Validate the public Codex plugin marketplace.")
+    parser = argparse.ArgumentParser(description="Validate the public Agent Store marketplace.")
     parser.add_argument("--root", default=".", help="Marketplace repository root.")
     parser.add_argument("--output", help="Write a JSON validation report.")
     parser.add_argument("--json", action="store_true", help="Print the validation report as JSON.")

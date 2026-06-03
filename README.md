@@ -1,31 +1,46 @@
-# Public Codex Plugin Marketplace
+# Agent Store
 
-This repository is a complete public-marketplace skeleton for Codex plugins. It
-keeps the Codex-compatible marketplace catalog small, then layers public
-listing metadata, validation, distribution artifacts, transaction records, and
-governance policy around it.
+Agent Store is a public marketplace skeleton for reusable agent capabilities.
+It is designed for tools in the same family as coding agents, desktop agents,
+MCP-enabled clients, and skill-based assistants.
 
-## User install flow
+The goal is **submit once, adapt across platforms**: developers publish one
+portable capability package, then add platform adapters only where a host tool
+requires a specific package or install format.
+
+## Public Path
+
+[https://github.com/ZhangXingyu123/agent-store](https://github.com/ZhangXingyu123/agent-store)
+
+## Platform Adapters
+
+Current supported adapter:
 
 ```bash
-codex plugin marketplace add ZhangXingyu123/codex-skill-store
+codex plugin marketplace add ZhangXingyu123/agent-store
 ```
 
-Then open **Plugins** in the Codex app or run `/plugins` in Codex CLI, switch
-to this marketplace source, and install a plugin.
+Planned adapter targets:
 
-For local testing from a clone:
+- Open Agent Skills as the shared authoring format.
+- Claude Code-compatible packaging.
+- MCP-capable agent clients.
+- Other agent clients that can load skills, tools, connectors, scripts, or MCP
+  server definitions.
 
-```bash
-codex plugin marketplace add /path/to/codex-skill-store
-```
-
-## Marketplace layout
+Compatibility metadata lives in:
 
 ```text
-.agents/plugins/marketplace.json          # Codex-readable marketplace catalog
+marketplace/platforms.json
+```
+
+## Marketplace Layout
+
+```text
+.agents/plugins/marketplace.json          # Host-readable marketplace catalog
 plugins/<plugin>/.codex-plugin/plugin.json
 plugins/<plugin>/skills/<skill>/SKILL.md
+marketplace/platforms.json                # Platform compatibility model
 marketplace/listings/<plugin>.json        # Public listing, pricing, governance
 marketplace/policies/                     # Validation, distribution, trade, governance
 marketplace/transactions/                 # Private ledger location, ignored by git
@@ -36,7 +51,11 @@ public/index.html                         # Generated public storefront
 public/marketplace.json                   # Generated public catalog
 ```
 
-## Current listings
+The `.codex-plugin` folder is a platform adapter format, not the product
+identity. Agent Store's public listing model is platform-neutral and can carry
+additional adapters as they are added.
+
+## Current Listings
 
 - `invoice-expense`: free local invoice table workflow.
 - `zebra-image`: installable demo filter with a paid premium-runtime SKU model.
@@ -52,7 +71,8 @@ python3 scripts/validate_marketplace.py --strict
 
 The validator checks:
 
-- Codex marketplace entry shape.
+- Marketplace entry shape.
+- Platform install command metadata.
 - Plugin manifest shape.
 - Skill frontmatter.
 - Local source-path boundaries.
@@ -63,10 +83,10 @@ The validator checks:
 - Lightweight secret patterns.
 - Transaction ledger hash chain when a local ledger exists.
 
-## Build public distribution artifacts
+## Build Public Distribution Artifacts
 
 ```bash
-python3 scripts/build_public_index.py --marketplace-source ZhangXingyu123/codex-skill-store
+python3 scripts/build_public_index.py --marketplace-source ZhangXingyu123/agent-store
 ```
 
 This writes:
@@ -76,14 +96,14 @@ public/marketplace.json
 public/index.html
 ```
 
-Publish `public/` with GitHub Pages or any static host. Codex installation still
-uses `.agents/plugins/marketplace.json`; the public files are for discovery,
-indexing, verification display, and commercial metadata.
+Publish `public/` with GitHub Pages or any static host. Host-specific
+installation still uses the adapter format for that host; the public files are
+for discovery, indexing, verification display, pricing, and governance.
 
-## Transaction ledger
+## Transaction Ledger
 
-The marketplace ledger records transaction events outside the Codex install
-flow. It can be connected to payment-provider webhooks.
+The marketplace ledger records transaction events outside any single host
+install flow. It can be connected to payment-provider webhooks.
 
 ```bash
 python3 scripts/record_transaction.py purchase \
@@ -109,13 +129,14 @@ marketplace/governance/audit-log.jsonl
 ```
 
 Public submissions should come through pull requests. Medium, high, and
-critical risk plugins require manual review before `status: listed`.
+critical risk capabilities require manual review before `status: listed`.
 
-## Developer submission checklist
+## Developer Submission Checklist
 
-1. Add `plugins/<plugin>/.codex-plugin/plugin.json`.
-2. Add at least one `plugins/<plugin>/skills/<skill>/SKILL.md`.
+1. Add a plugin or capability package under `plugins/<plugin>`.
+2. Add at least one portable `SKILL.md`.
 3. Add `marketplace/listings/<plugin>.json`.
-4. Add a marketplace entry in `.agents/plugins/marketplace.json`.
-5. Run `python3 scripts/validate_marketplace.py --strict`.
-6. Open a PR using the plugin submission template.
+4. Declare supported adapters in `distribution.installCommands`.
+5. Add or update the host-specific marketplace entry when an adapter needs it.
+6. Run `python3 scripts/validate_marketplace.py --strict`.
+7. Open a PR using the plugin submission template.

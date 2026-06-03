@@ -1,16 +1,16 @@
 {
   "name": "feishu-connector",
   "version": "0.1.0",
-  "description": "Connect Codex to Feishu/Lark through the official OpenAPI MCP server.",
+  "description": "Connect an agent workspace to Feishu/Lark through the official OpenAPI MCP server.",
   "author": {
-    "name": "Demo Skill Store"
+    "name": "Agent Store"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Feishu Connector",
     "shortDescription": "Read and automate Feishu/Lark docs, chats, calendars, and bitables.",
-    "longDescription": "Feishu Connector bundles a Codex skill and MCP configuration for the official Feishu/Lark OpenAPI MCP server. Users bring their own Feishu/Lark app credentials and grant only the scopes needed for their task.",
-    "developerName": "Demo Skill Store",
+    "longDescription": "Feishu Connector bundles an agent skill and MCP configuration for the official Feishu/Lark OpenAPI MCP server. Users bring their own Feishu/Lark app credentials and grant only the scopes needed for their task.",
+    "developerName": "Agent Store",
     "category": "Productivity",
     "capabilities": [
       "MCP connector",

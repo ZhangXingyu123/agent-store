@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "marketplace": "agent-store",
+  "displayName": "Agent Store",
+  "positioning": "A cross-platform marketplace for reusable agent capabilities, skills, connectors, scripts, and platform adapters.",
+  "developerModel": {
+    "submitOnce": true,
+    "preferredPackage": "open-agent-skill",
+    "adapterStrategy": "Developers submit one reusable capability and add platform adapters only where the host tool requires packaging differences."
+  },
+  "platforms": [
+    {
+      "id": "open-agent-skills",
+      "displayName": "Open Agent Skills",
+      "status": "supported",
+      "role": "Shared authoring format for portable capability instructions and assets."
+    },
+    {
+      "id": "codex",
+      "displayName": "Codex",
+      "status": "supported",
+      "role": "Installable adapter through the host plugin marketplace format."
+    },
+    {
+      "id": "claude-code",
+      "displayName": "Claude Code",
+      "status": "planned",
+      "role": "Future adapter target for compatible skill packaging and invocation metadata."
+    },
+    {
+      "id": "mcp-clients",
+      "displayName": "MCP-capable agent clients",
+      "status": "planned",
+      "role": "Connector-oriented distribution for tools that expose MCP servers."
+    }
+  ]
+}

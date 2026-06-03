@@ -5,13 +5,18 @@
   "category": "Productivity",
   "summary": "Build reimbursement tables from invoice CSV or JSON data.",
   "developer": {
-    "name": "Demo Skill Store",
+    "name": "Agent Store",
     "contact": "marketplace-ops@example.com",
-    "url": "https://example.com/demo-skill-store"
+    "url": "https://example.com/agent-store"
   },
   "distribution": {
     "sourcePath": "./plugins/invoice-expense",
-    "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+    "installCommands": [
+      {
+        "platform": "codex",
+        "command": "codex plugin marketplace add ZhangXingyu123/agent-store"
+      }
+    ],
     "channel": "git-marketplace",
     "releaseTrack": "stable"
   },
@@ -20,7 +25,7 @@
     "level": "community-reviewed",
     "checkedAt": "2026-06-03",
     "checks": [
-      "codex-marketplace-entry",
+      "platform-adapter-entry",
       "plugin-manifest",
       "skill-frontmatter",
       "source-path",
@@ -39,7 +44,7 @@
   "transactions": {
     "sku": "invoice-expense-free",
     "requiresEntitlement": false,
-    "settlementAccount": "demo-skill-store"
+    "settlementAccount": "agent-store"
   },
   "governance": {
     "reviewState": "approved",

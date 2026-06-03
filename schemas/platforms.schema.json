@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/platforms.schema.json",
+  "title": "Agent Store Platform Compatibility",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "marketplace",
+    "displayName",
+    "platforms"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "marketplace": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "developerModel": {
+      "type": "object"
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "displayName",
+          "status",
+          "role"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "supported",
+              "planned",
+              "experimental",
+              "deprecated"
+            ]
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

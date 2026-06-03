@@ -7,7 +7,7 @@ strict:
 	python3 scripts/validate_marketplace.py --strict
 
 build:
-	python3 scripts/build_public_index.py --marketplace-source ZhangXingyu123/codex-skill-store
+	python3 scripts/build_public_index.py --marketplace-source ZhangXingyu123/agent-store
 
 transaction-dry-run:
 	python3 scripts/record_transaction.py purchase \

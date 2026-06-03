@@ -1,7 +1,7 @@
 {
-  "name": "demo-skill-store",
+  "name": "agent-store",
   "interface": {
-    "displayName": "Demo Skill Store"
+    "displayName": "Agent Store"
   },
   "plugins": [
     {

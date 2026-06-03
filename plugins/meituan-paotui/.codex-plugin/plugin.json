@@ -1,16 +1,16 @@
 {
   "name": "meituan-paotui",
   "version": "0.1.0",
-  "description": "A Codex store adapter for the official Meituan Paotui Skill source.",
+  "description": "An Agent Store adapter for the official Meituan Paotui Skill source.",
   "author": {
-    "name": "Demo Skill Store"
+    "name": "Agent Store"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Meituan Paotui",
     "shortDescription": "Prepare Meituan runner-service requests with explicit user confirmation.",
-    "longDescription": "Meituan Paotui is a store adapter that points Codex users to the official Meituan Paotui Skill source and enforces safe usage notes. It does not redistribute the upstream Meituan code unless the upstream license or authorization permits it.",
-    "developerName": "Demo Skill Store",
+    "longDescription": "Meituan Paotui is a store adapter that points agent users to the official Meituan Paotui Skill source and enforces safe usage notes. It does not redistribute the upstream Meituan code unless the upstream license or authorization permits it.",
+    "developerName": "Agent Store",
     "category": "Local Services",
     "capabilities": [
       "Official-source adapter",

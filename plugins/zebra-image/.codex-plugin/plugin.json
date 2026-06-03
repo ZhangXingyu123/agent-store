@@ -1,16 +1,16 @@
 {
   "name": "zebra-image",
   "version": "0.1.0",
-  "description": "Turn ordinary images into black-and-white zebra-style images from Codex.",
+  "description": "Turn ordinary images into black-and-white zebra-style images from an agent workspace.",
   "author": {
-    "name": "Demo Skill Store"
+    "name": "Agent Store"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Zebra Image",
     "shortDescription": "Apply a zebra stripe effect to an input image.",
-    "longDescription": "Zebra Image adds a reusable Codex skill for converting common image files into black-and-white zebra-style PNG outputs with a small local demo script.",
-    "developerName": "Demo Skill Store",
+    "longDescription": "Zebra Image adds a reusable agent skill for converting common image files into black-and-white zebra-style PNG outputs with a small local demo script.",
+    "developerName": "Agent Store",
     "category": "Creativity",
     "capabilities": [
       "Image processing",

@@ -1,16 +1,16 @@
 {
   "name": "invoice-expense",
   "version": "0.1.0",
-  "description": "Turn invoice data into a reimbursement table from Codex.",
+  "description": "Turn invoice data into a reimbursement table from an agent workspace.",
   "author": {
-    "name": "Demo Skill Store"
+    "name": "Agent Store"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Invoice Expense",
     "shortDescription": "Build a reimbursement table from invoice data.",
-    "longDescription": "Invoice Expense adds a reusable Codex skill for converting invoice fields into a reimbursement table, with a small local demo script for CSV or JSON inputs.",
-    "developerName": "Demo Skill Store",
+    "longDescription": "Invoice Expense adds a reusable agent skill for converting invoice fields into a reimbursement table, with a small local demo script for CSV or JSON inputs.",
+    "developerName": "Agent Store",
     "category": "Productivity",
     "capabilities": [
       "File processing",

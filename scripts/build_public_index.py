@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build public discovery artifacts for the Codex plugin marketplace."""
+"""Build public discovery artifacts for the Agent Store marketplace."""
 
 from __future__ import annotations
 
@@ -32,7 +32,10 @@ def render_plugin(plugin: dict) -> str:
     elif pricing["model"] == "external":
         price = "External"
 
-    install_command = distribution.get("codexInstallCommand", "codex plugin marketplace add <source>")
+    install_commands = distribution.get("installCommands") or [
+        {"platform": "codex", "command": "codex plugin marketplace add <source>"}
+    ]
+    install_command = install_commands[0]["command"]
     risk_class = f"risk-{governance.get('riskTier', 'low')}"
     status_class = "status-ok" if plugin["status"] == "listed" else "status-muted"
     verification_class = "status-ok" if verification.get("state") == "passed" else "status-warn"
@@ -332,18 +335,18 @@ def render_html(catalog: dict) -> str:
   <header>
     <div class="wrap topbar">
       <div class="brand">
-        <div class="mark">CS</div>
+        <div class="mark">AS</div>
         <div>
           <h1>{html.escape(catalog["displayName"])}</h1>
           <p>{html.escape(category_text)}</p>
         </div>
       </div>
-      <div class="install"><code>{html.escape(catalog["installCommand"])}</code></div>
+      <div class="install"><code>Source: {html.escape(catalog.get("source", ""))}</code></div>
     </div>
   </header>
   <main class="wrap">
     <section class="summary-band" aria-label="Marketplace metrics">
-      <div class="metric"><span>Plugins</span><strong>{len(catalog["plugins"])}</strong></div>
+      <div class="metric"><span>Capabilities</span><strong>{len(catalog["plugins"])}</strong></div>
       <div class="metric"><span>Verified</span><strong>{sum(1 for p in catalog["plugins"] if p["verification"].get("state") == "passed")}</strong></div>
       <div class="metric"><span>Paid SKUs</span><strong>{sum(1 for p in catalog["plugins"] if p["pricing"].get("model") not in {"free", "external"})}</strong></div>
       <div class="metric"><span>Risk tiers</span><strong>{html.escape(", ".join(sorted({p["governance"].get("riskTier", "unknown") for p in catalog["plugins"]})))}</strong></div>
@@ -376,9 +379,12 @@ def main() -> int:
         return 1
 
     catalog = build_public_catalog(root)
-    catalog["installCommand"] = f"codex plugin marketplace add {args.marketplace_source}"
+    primary_command = f"codex plugin marketplace add {args.marketplace_source}"
+    catalog["source"] = args.marketplace_source
+    catalog["primaryInstallCommand"] = primary_command
+    catalog["installCommands"] = [{"platform": "codex", "command": primary_command}]
     for plugin in catalog["plugins"]:
-        plugin["distribution"]["codexInstallCommand"] = catalog["installCommand"]
+        plugin["distribution"]["installCommands"] = [{"platform": "codex", "command": primary_command}]
 
     output_dir = root / args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)

@@ -1,6 +1,6 @@
 # Distribution Policy
 
-This marketplace is distributed as a Git-backed Codex plugin marketplace.
+This marketplace is distributed as a Git-backed Agent Store marketplace.
 
 ## Repository layout
 
@@ -13,16 +13,16 @@ public/marketplace.json
 public/index.html
 ```
 
-Codex reads `.agents/plugins/marketplace.json`. The public website and JSON
+Host adapters read `.agents/plugins/marketplace.json`. The public website and JSON
 catalog are generated from the same source plus listing metadata.
 
 ## User install flow
 
 ```bash
-codex plugin marketplace add ZhangXingyu123/codex-skill-store
+codex plugin marketplace add ZhangXingyu123/agent-store
 ```
 
-Then the user opens the Codex plugin directory, selects this marketplace source,
+Then the user opens the agent capability directory, selects this marketplace source,
 and installs the plugin.
 
 ## Versioning

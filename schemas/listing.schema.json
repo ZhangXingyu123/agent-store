@@ -63,8 +63,33 @@
       "type": "object",
       "required": [
         "sourcePath",
+        "installCommands",
         "channel"
       ],
+      "properties": {
+        "sourcePath": {
+          "type": "string"
+        },
+        "installCommands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "platform",
+              "command"
+            ],
+            "properties": {
+              "platform": {
+                "type": "string"
+              },
+              "command": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
       "additionalProperties": true
     },
     "verification": {
