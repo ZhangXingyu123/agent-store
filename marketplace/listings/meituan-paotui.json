@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0",
+  "name": "meituan-paotui",
+  "status": "listed",
+  "category": "Local Services",
+  "summary": "Adapter for official Meituan runner-service workflows with confirmation gates.",
+  "developer": {
+    "name": "Demo Skill Store",
+    "contact": "marketplace-ops@example.com",
+    "url": "https://example.com/demo-skill-store"
+  },
+  "distribution": {
+    "sourcePath": "./plugins/meituan-paotui",
+    "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+    "channel": "git-marketplace",
+    "releaseTrack": "stable"
+  },
+  "verification": {
+    "state": "passed",
+    "level": "community-reviewed",
+    "checkedAt": "2026-06-03",
+    "checks": [
+      "codex-marketplace-entry",
+      "plugin-manifest",
+      "skill-frontmatter",
+      "source-path",
+      "secret-scan",
+      "transaction-metadata",
+      "governance-metadata",
+      "redistribution-boundary"
+    ]
+  },
+  "pricing": {
+    "model": "external",
+    "currency": "CNY",
+    "priceCents": 0,
+    "trialDays": 0,
+    "chargesFor": "External Meituan services may charge users directly; this adapter does not collect marketplace payment."
+  },
+  "transactions": {
+    "sku": "meituan-paotui-adapter",
+    "requiresEntitlement": false,
+    "settlementAccount": "external-meituan"
+  },
+  "governance": {
+    "reviewState": "approved",
+    "riskTier": "high",
+    "dataAccess": "user-provided order details and external Meituan authorization when available",
+    "permissions": [
+      "external-service-auth",
+      "real-world-spending"
+    ],
+    "userConfirmationRequired": true,
+    "appealPolicy": "marketplace/policies/governance.md"
+  },
+  "legal": {
+    "license": "Adapter only; upstream code is not redistributed",
+    "termsUrl": "marketplace/policies/transactions.md"
+  }
+}

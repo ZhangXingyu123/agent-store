@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "marketplace": "demo-skill-store",
+  "roles": [
+    {
+      "role": "marketplace-admin",
+      "contact": "marketplace-ops@example.com"
+    },
+    {
+      "role": "security-reviewer",
+      "contact": "security@example.com"
+    },
+    {
+      "role": "transaction-reviewer",
+      "contact": "billing@example.com"
+    }
+  ],
+  "riskTierOwners": {
+    "low": [
+      "marketplace-admin"
+    ],
+    "medium": [
+      "marketplace-admin",
+      "security-reviewer"
+    ],
+    "high": [
+      "marketplace-admin",
+      "security-reviewer",
+      "transaction-reviewer"
+    ],
+    "critical": [
+      "marketplace-admin",
+      "security-reviewer",
+      "transaction-reviewer"
+    ]
+  }
+}

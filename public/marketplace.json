@@ -1,0 +1,256 @@
+{
+  "schemaVersion": "1.0",
+  "name": "demo-skill-store",
+  "displayName": "Demo Skill Store",
+  "installCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+  "plugins": [
+    {
+      "name": "invoice-expense",
+      "version": "0.1.0",
+      "status": "listed",
+      "displayName": "Invoice Expense",
+      "summary": "Build a reimbursement table from invoice data.",
+      "description": "Invoice Expense adds a reusable Codex skill for converting invoice fields into a reimbursement table, with a small local demo script for CSV or JSON inputs.",
+      "developer": {
+        "name": "Demo Skill Store",
+        "contact": "marketplace-ops@example.com",
+        "url": "https://example.com/demo-skill-store"
+      },
+      "category": "Productivity",
+      "capabilities": [
+        "File processing",
+        "Expense report generation",
+        "Duplicate invoice checks"
+      ],
+      "pricing": {
+        "model": "free",
+        "currency": "USD",
+        "priceCents": 0,
+        "trialDays": 0,
+        "chargesFor": "Local demo skill and bundled script."
+      },
+      "verification": {
+        "state": "passed",
+        "level": "community-reviewed",
+        "checkedAt": "2026-06-03",
+        "checks": [
+          "codex-marketplace-entry",
+          "plugin-manifest",
+          "skill-frontmatter",
+          "source-path",
+          "secret-scan",
+          "transaction-metadata",
+          "governance-metadata"
+        ]
+      },
+      "governance": {
+        "reviewState": "approved",
+        "riskTier": "low",
+        "dataAccess": "local invoice CSV or JSON selected by the user",
+        "permissions": [
+          "filesystem-read",
+          "filesystem-write"
+        ],
+        "userConfirmationRequired": false,
+        "appealPolicy": "marketplace/policies/governance.md"
+      },
+      "distribution": {
+        "sourcePath": "./plugins/invoice-expense",
+        "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+        "channel": "git-marketplace",
+        "releaseTrack": "stable"
+      },
+      "checksums": {
+        "manifestSha256": "531076bee8b6a19c4b631b5a5790378ede6e9f3c565c4dcb3f1513cfddd4b9c4",
+        "pluginTreeSha256": "c1f54cf93d45191cfa38b390831563442a537eb8b003310affaef8ab4d512957"
+      }
+    },
+    {
+      "name": "zebra-image",
+      "version": "0.1.0",
+      "status": "listed",
+      "displayName": "Zebra Image",
+      "summary": "Apply a zebra stripe effect to an input image.",
+      "description": "Zebra Image adds a reusable Codex skill for converting common image files into black-and-white zebra-style PNG outputs with a small local demo script.",
+      "developer": {
+        "name": "Demo Skill Store",
+        "contact": "marketplace-ops@example.com",
+        "url": "https://example.com/demo-skill-store"
+      },
+      "category": "Creativity",
+      "capabilities": [
+        "Image processing",
+        "PNG output generation",
+        "Zebra stripe effect"
+      ],
+      "pricing": {
+        "model": "one_time",
+        "currency": "USD",
+        "priceCents": 499,
+        "trialDays": 0,
+        "chargesFor": "Premium hosted image runtime; the local demo filter remains installable for inspection."
+      },
+      "verification": {
+        "state": "passed",
+        "level": "community-reviewed",
+        "checkedAt": "2026-06-03",
+        "checks": [
+          "codex-marketplace-entry",
+          "plugin-manifest",
+          "skill-frontmatter",
+          "source-path",
+          "secret-scan",
+          "transaction-metadata",
+          "governance-metadata"
+        ]
+      },
+      "governance": {
+        "reviewState": "approved",
+        "riskTier": "low",
+        "dataAccess": "local image files selected by the user",
+        "permissions": [
+          "filesystem-read",
+          "filesystem-write"
+        ],
+        "userConfirmationRequired": false,
+        "appealPolicy": "marketplace/policies/governance.md"
+      },
+      "distribution": {
+        "sourcePath": "./plugins/zebra-image",
+        "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+        "channel": "git-marketplace",
+        "releaseTrack": "stable"
+      },
+      "checksums": {
+        "manifestSha256": "1a2eb0d966f1c6dcc5870aa5e72a76f565ada014f5f228f6607029a7a947dafe",
+        "pluginTreeSha256": "433a4738c5a7846d58379d2e70e679889499d30bfc7472a20fecffa6bdc531d2"
+      }
+    },
+    {
+      "name": "feishu-connector",
+      "version": "0.1.0",
+      "status": "listed",
+      "displayName": "Feishu Connector",
+      "summary": "Read and automate Feishu/Lark docs, chats, calendars, and bitables.",
+      "description": "Feishu Connector bundles a Codex skill and MCP configuration for the official Feishu/Lark OpenAPI MCP server. Users bring their own Feishu/Lark app credentials and grant only the scopes needed for their task.",
+      "developer": {
+        "name": "Demo Skill Store",
+        "contact": "marketplace-ops@example.com",
+        "url": "https://example.com/demo-skill-store"
+      },
+      "category": "Productivity",
+      "capabilities": [
+        "MCP connector",
+        "Feishu/Lark documents",
+        "Feishu/Lark chats",
+        "Calendar and bitable workflows"
+      ],
+      "pricing": {
+        "model": "free",
+        "currency": "USD",
+        "priceCents": 0,
+        "trialDays": 0,
+        "chargesFor": "Connector wrapper. Users bring their own Feishu or Lark credentials."
+      },
+      "verification": {
+        "state": "passed",
+        "level": "community-reviewed",
+        "checkedAt": "2026-06-03",
+        "checks": [
+          "codex-marketplace-entry",
+          "plugin-manifest",
+          "mcp-config-present",
+          "skill-frontmatter",
+          "source-path",
+          "secret-scan",
+          "transaction-metadata",
+          "governance-metadata"
+        ]
+      },
+      "governance": {
+        "reviewState": "approved",
+        "riskTier": "medium",
+        "dataAccess": "Feishu or Lark resources authorized by the user",
+        "permissions": [
+          "mcp-network-access",
+          "external-service-auth"
+        ],
+        "userConfirmationRequired": true,
+        "appealPolicy": "marketplace/policies/governance.md"
+      },
+      "distribution": {
+        "sourcePath": "./plugins/feishu-connector",
+        "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+        "channel": "git-marketplace",
+        "releaseTrack": "stable"
+      },
+      "checksums": {
+        "manifestSha256": "66aa359c559cf4dd0e8b8f8656a705546b90d33bafaa518d78d6ed97998b896d",
+        "pluginTreeSha256": "f04120755f0c49dc3cc0eadaeb305b63c74eb20aa1252a751e4c2704d76c1723"
+      }
+    },
+    {
+      "name": "meituan-paotui",
+      "version": "0.1.0",
+      "status": "listed",
+      "displayName": "Meituan Paotui",
+      "summary": "Prepare Meituan runner-service requests with explicit user confirmation.",
+      "description": "Meituan Paotui is a store adapter that points Codex users to the official Meituan Paotui Skill source and enforces safe usage notes. It does not redistribute the upstream Meituan code unless the upstream license or authorization permits it.",
+      "developer": {
+        "name": "Demo Skill Store",
+        "contact": "marketplace-ops@example.com",
+        "url": "https://example.com/demo-skill-store"
+      },
+      "category": "Local Services",
+      "capabilities": [
+        "Official-source adapter",
+        "Runner-service workflow",
+        "Two-step confirmation",
+        "Authorization handoff"
+      ],
+      "pricing": {
+        "model": "external",
+        "currency": "CNY",
+        "priceCents": 0,
+        "trialDays": 0,
+        "chargesFor": "External Meituan services may charge users directly; this adapter does not collect marketplace payment."
+      },
+      "verification": {
+        "state": "passed",
+        "level": "community-reviewed",
+        "checkedAt": "2026-06-03",
+        "checks": [
+          "codex-marketplace-entry",
+          "plugin-manifest",
+          "skill-frontmatter",
+          "source-path",
+          "secret-scan",
+          "transaction-metadata",
+          "governance-metadata",
+          "redistribution-boundary"
+        ]
+      },
+      "governance": {
+        "reviewState": "approved",
+        "riskTier": "high",
+        "dataAccess": "user-provided order details and external Meituan authorization when available",
+        "permissions": [
+          "external-service-auth",
+          "real-world-spending"
+        ],
+        "userConfirmationRequired": true,
+        "appealPolicy": "marketplace/policies/governance.md"
+      },
+      "distribution": {
+        "sourcePath": "./plugins/meituan-paotui",
+        "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+        "channel": "git-marketplace",
+        "releaseTrack": "stable"
+      },
+      "checksums": {
+        "manifestSha256": "6fcb80ea51f989acf50228fd99abd6d562636918e8faba4ade7729b47b35fa4d",
+        "pluginTreeSha256": "852f4dd396c7c6090dbc2293a60b1bddddfafce69303544ced7f3a8ff9777272"
+      }
+    }
+  ]
+}

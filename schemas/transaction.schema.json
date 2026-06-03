@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/transaction.schema.json",
+  "title": "Marketplace Transaction Ledger Entry",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "timestamp",
+    "type",
+    "plugin",
+    "sku",
+    "buyer_ref",
+    "amount_cents",
+    "currency",
+    "provider",
+    "idempotency_key_hash",
+    "entitlement",
+    "prev_hash",
+    "entry_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "purchase",
+        "refund",
+        "grant",
+        "revoke"
+      ]
+    },
+    "plugin": {
+      "type": "string"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "buyer_ref": {
+      "type": "string"
+    },
+    "amount_cents": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "currency": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "provider_event_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "idempotency_key_hash": {
+      "type": "string"
+    },
+    "entitlement": {
+      "type": "object",
+      "required": [
+        "status",
+        "starts_at"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "active",
+            "revoked"
+          ]
+        },
+        "starts_at": {
+          "type": "string"
+        },
+        "ends_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "prev_hash": {
+      "type": "string"
+    },
+    "entry_hash": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

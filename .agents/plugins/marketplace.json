@@ -1,0 +1,56 @@
+{
+  "name": "demo-skill-store",
+  "interface": {
+    "displayName": "Demo Skill Store"
+  },
+  "plugins": [
+    {
+      "name": "invoice-expense",
+      "source": {
+        "source": "local",
+        "path": "./plugins/invoice-expense"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "zebra-image",
+      "source": {
+        "source": "local",
+        "path": "./plugins/zebra-image"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    },
+    {
+      "name": "feishu-connector",
+      "source": {
+        "source": "local",
+        "path": "./plugins/feishu-connector"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "meituan-paotui",
+      "source": {
+        "source": "local",
+        "path": "./plugins/meituan-paotui"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Local Services"
+    }
+  ]
+}

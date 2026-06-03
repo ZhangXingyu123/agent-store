@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0",
+  "name": "invoice-expense",
+  "status": "listed",
+  "category": "Productivity",
+  "summary": "Build reimbursement tables from invoice CSV or JSON data.",
+  "developer": {
+    "name": "Demo Skill Store",
+    "contact": "marketplace-ops@example.com",
+    "url": "https://example.com/demo-skill-store"
+  },
+  "distribution": {
+    "sourcePath": "./plugins/invoice-expense",
+    "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+    "channel": "git-marketplace",
+    "releaseTrack": "stable"
+  },
+  "verification": {
+    "state": "passed",
+    "level": "community-reviewed",
+    "checkedAt": "2026-06-03",
+    "checks": [
+      "codex-marketplace-entry",
+      "plugin-manifest",
+      "skill-frontmatter",
+      "source-path",
+      "secret-scan",
+      "transaction-metadata",
+      "governance-metadata"
+    ]
+  },
+  "pricing": {
+    "model": "free",
+    "currency": "USD",
+    "priceCents": 0,
+    "trialDays": 0,
+    "chargesFor": "Local demo skill and bundled script."
+  },
+  "transactions": {
+    "sku": "invoice-expense-free",
+    "requiresEntitlement": false,
+    "settlementAccount": "demo-skill-store"
+  },
+  "governance": {
+    "reviewState": "approved",
+    "riskTier": "low",
+    "dataAccess": "local invoice CSV or JSON selected by the user",
+    "permissions": [
+      "filesystem-read",
+      "filesystem-write"
+    ],
+    "userConfirmationRequired": false,
+    "appealPolicy": "marketplace/policies/governance.md"
+  },
+  "legal": {
+    "license": "Demo only",
+    "termsUrl": "marketplace/policies/transactions.md"
+  }
+}

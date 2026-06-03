@@ -1,0 +1,3 @@
+ledger.jsonl
+*.private.jsonl
+*.secret.jsonl

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0",
+  "name": "feishu-connector",
+  "status": "listed",
+  "category": "Productivity",
+  "summary": "Connect Codex to Feishu or Lark through the official OpenAPI MCP server.",
+  "developer": {
+    "name": "Demo Skill Store",
+    "contact": "marketplace-ops@example.com",
+    "url": "https://example.com/demo-skill-store"
+  },
+  "distribution": {
+    "sourcePath": "./plugins/feishu-connector",
+    "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+    "channel": "git-marketplace",
+    "releaseTrack": "stable"
+  },
+  "verification": {
+    "state": "passed",
+    "level": "community-reviewed",
+    "checkedAt": "2026-06-03",
+    "checks": [
+      "codex-marketplace-entry",
+      "plugin-manifest",
+      "mcp-config-present",
+      "skill-frontmatter",
+      "source-path",
+      "secret-scan",
+      "transaction-metadata",
+      "governance-metadata"
+    ]
+  },
+  "pricing": {
+    "model": "free",
+    "currency": "USD",
+    "priceCents": 0,
+    "trialDays": 0,
+    "chargesFor": "Connector wrapper. Users bring their own Feishu or Lark credentials."
+  },
+  "transactions": {
+    "sku": "feishu-connector-free",
+    "requiresEntitlement": false,
+    "settlementAccount": "demo-skill-store"
+  },
+  "governance": {
+    "reviewState": "approved",
+    "riskTier": "medium",
+    "dataAccess": "Feishu or Lark resources authorized by the user",
+    "permissions": [
+      "mcp-network-access",
+      "external-service-auth"
+    ],
+    "userConfirmationRequired": true,
+    "appealPolicy": "marketplace/policies/governance.md"
+  },
+  "legal": {
+    "license": "Adapter only",
+    "termsUrl": "marketplace/policies/transactions.md"
+  }
+}

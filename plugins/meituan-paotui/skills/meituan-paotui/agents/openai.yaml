@@ -1,0 +1,8 @@
+interface:
+  display_name: "Meituan Paotui"
+  short_description: "Adapter for official Meituan runner-service Skill source."
+  default_prompt: "Use meituan-paotui to prepare a safe Meituan runner-service request."
+
+policy:
+  allow_implicit_invocation: true
+

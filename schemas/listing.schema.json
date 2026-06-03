@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/listing.schema.json",
+  "title": "Public Plugin Listing",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "name",
+    "status",
+    "category",
+    "summary",
+    "developer",
+    "distribution",
+    "verification",
+    "pricing",
+    "transactions",
+    "governance",
+    "legal"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?:[a-z0-9-]{0,62}[a-z0-9])?$"
+    },
+    "status": {
+      "enum": [
+        "listed",
+        "unlisted",
+        "suspended",
+        "deprecated"
+      ]
+    },
+    "category": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "developer": {
+      "type": "object",
+      "required": [
+        "name",
+        "contact"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "distribution": {
+      "type": "object",
+      "required": [
+        "sourcePath",
+        "channel"
+      ],
+      "additionalProperties": true
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "state",
+        "level",
+        "checks"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "passed",
+            "failed",
+            "pending"
+          ]
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "pricing": {
+      "type": "object",
+      "required": [
+        "model",
+        "currency",
+        "priceCents"
+      ],
+      "properties": {
+        "model": {
+          "enum": [
+            "free",
+            "one_time",
+            "subscription",
+            "usage",
+            "external"
+          ]
+        },
+        "currency": {
+          "type": "string"
+        },
+        "priceCents": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "transactions": {
+      "type": "object",
+      "required": [
+        "sku",
+        "requiresEntitlement",
+        "settlementAccount"
+      ],
+      "additionalProperties": true
+    },
+    "governance": {
+      "type": "object",
+      "required": [
+        "reviewState",
+        "riskTier",
+        "dataAccess",
+        "permissions",
+        "userConfirmationRequired"
+      ],
+      "properties": {
+        "reviewState": {
+          "enum": [
+            "pending",
+            "approved",
+            "rejected",
+            "suspended"
+          ]
+        },
+        "riskTier": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

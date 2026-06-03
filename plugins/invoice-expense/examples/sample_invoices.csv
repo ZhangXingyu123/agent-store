@@ -1,0 +1,5 @@
+发票号码,日期,销售方,金额,税额,价税合计,报销人,类别,备注
+INV-001,2026-05-12,Shanghai Office Supplies,100.00,13.00,113.00,Alice,Office supplies,printer paper
+INV-002,2026-05-13,Cloud Vendor,200.00,12.00,212.00,Alice,Software,monthly SaaS
+INV-001,2026-05-14,Taxi Service,80.00,0.00,80.00,Alice,Transport,duplicate invoice demo
+

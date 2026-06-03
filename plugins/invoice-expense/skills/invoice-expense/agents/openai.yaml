@@ -1,0 +1,8 @@
+interface:
+  display_name: "Invoice Expense"
+  short_description: "Turn invoice data into a reimbursement table."
+  default_prompt: "Use invoice-expense to turn these invoices into a reimbursement table."
+
+policy:
+  allow_implicit_invocation: true
+

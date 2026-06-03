@@ -1,0 +1,15 @@
+interface:
+  display_name: "Feishu Connector"
+  short_description: "Work with Feishu/Lark through the official OpenAPI MCP server."
+  default_prompt: "Use feishu-connector to help me work with Feishu/Lark."
+
+policy:
+  allow_implicit_invocation: true
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "lark-mcp"
+      description: "Official Feishu/Lark OpenAPI MCP server"
+      transport: "stdio"
+

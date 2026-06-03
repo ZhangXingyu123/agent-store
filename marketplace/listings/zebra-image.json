@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0",
+  "name": "zebra-image",
+  "status": "listed",
+  "category": "Creativity",
+  "summary": "Apply a deterministic zebra stripe effect to local images.",
+  "developer": {
+    "name": "Demo Skill Store",
+    "contact": "marketplace-ops@example.com",
+    "url": "https://example.com/demo-skill-store"
+  },
+  "distribution": {
+    "sourcePath": "./plugins/zebra-image",
+    "codexInstallCommand": "codex plugin marketplace add ZhangXingyu123/codex-skill-store",
+    "channel": "git-marketplace",
+    "releaseTrack": "stable"
+  },
+  "verification": {
+    "state": "passed",
+    "level": "community-reviewed",
+    "checkedAt": "2026-06-03",
+    "checks": [
+      "codex-marketplace-entry",
+      "plugin-manifest",
+      "skill-frontmatter",
+      "source-path",
+      "secret-scan",
+      "transaction-metadata",
+      "governance-metadata"
+    ]
+  },
+  "pricing": {
+    "model": "one_time",
+    "currency": "USD",
+    "priceCents": 499,
+    "trialDays": 0,
+    "chargesFor": "Premium hosted image runtime; the local demo filter remains installable for inspection."
+  },
+  "transactions": {
+    "sku": "zebra-image-premium-runtime",
+    "requiresEntitlement": true,
+    "settlementAccount": "demo-skill-store"
+  },
+  "governance": {
+    "reviewState": "approved",
+    "riskTier": "low",
+    "dataAccess": "local image files selected by the user",
+    "permissions": [
+      "filesystem-read",
+      "filesystem-write"
+    ],
+    "userConfirmationRequired": false,
+    "appealPolicy": "marketplace/policies/governance.md"
+  },
+  "legal": {
+    "license": "Demo only",
+    "termsUrl": "marketplace/policies/transactions.md"
+  }
+}

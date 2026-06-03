@@ -1,0 +1,20 @@
+name: Marketplace validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate marketplace
+        run: python3 scripts/validate_marketplace.py --strict
+      - name: Build public index
+        run: python3 scripts/build_public_index.py --marketplace-source ZhangXingyu123/codex-skill-store

@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "lark-mcp": {
+      "command": "sh",
+      "args": [
+        "-lc",
+        "npx -y @larksuiteoapi/lark-mcp mcp -a \"$FEISHU_APP_ID\" -s \"$FEISHU_APP_SECRET\" ${FEISHU_MCP_EXTRA_ARGS:-}"
+      ],
+      "env_vars": [
+        "FEISHU_APP_ID",
+        "FEISHU_APP_SECRET",
+        "FEISHU_MCP_EXTRA_ARGS"
+      ],
+      "startup_timeout_sec": 30,
+      "tool_timeout_sec": 90,
+      "default_tools_approval_mode": "prompt"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+.codex_work/
+outputs/
+marketplace/transactions/ledger.jsonl
+marketplace/transactions/*.private.jsonl
+marketplace/transactions/*.secret.jsonl
